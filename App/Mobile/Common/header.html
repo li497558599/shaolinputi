@@ -1,0 +1,42 @@
+<!--网站头部开始-->
+<div class="head">
+    <a href="{:U('Mobile/Index/index')}"><img src="__PUBLIC__/Mobile/img/index-01.png" alt="" /></a>
+</div>
+<!--网站导航开始-->
+<div class="nav1">
+    <ul>
+        <li><a href="/">网站首页</a></li>
+        <li><a href="{:U('Mobile/About/about')}">武校简介</a></li>
+        <li><a href="{:U('Mobile/Student/student')}">招生简章</a></li>
+        <li><a href="{:U('Mobile/Charge/charge')}">收费标准</a></li>
+        <li><a href="{:U('Mobile/Course/course')}">课程安排</a></li>
+        <li><a href="{:U('Mobile/Question/question')}">家长问答</a></li>
+        <li><a href="{:U('Mobile/Graduate/graduate')}">毕业去向</a></li>
+        <li><a href="{:U('Mobile/Contact/contact')}">联系我们</a></li>
+    </ul>
+</div>
+<!--网站banner开始-->
+<div class="banner">
+    <div class="main_visual">
+        <div class="flicking_con">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+        </div>
+        <div class="main_image">
+            <ul>
+                <foreach name='banners' item='vo'>
+                    <li><span><img src="{$vo.pic}"/></span></li>
+                </foreach>
+            </ul>
+            <a href="javascript:;" id="btn_prev"></a>
+            <a href="javascript:;" id="btn_next"></a>
+        </div>
+    </div>	
+</div>
+<!--banner下方的点击咨询-->
+<!--<div class="consultation">
+        <input type="text" name="" id="" value="" placeholder="学生姓名："/>
+        <input type="text" name="" id="" value="" placeholder="您的电话："/>
+        <span>立即咨询</span>
+</div>-->

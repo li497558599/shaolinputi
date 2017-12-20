@@ -1,0 +1,203 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8">
+		<title><?php echo ($environment["title"]); ?></title>
+		<meta name="Keywords" content="<?php echo ($environment["keywords"]); ?>"/>
+		<meta name="Description" content="<?php echo ($environment["description"]); ?>"/>
+		<link rel="stylesheet" type="text/css" href="/Public/Home/css/main.css"/>
+		<link rel="stylesheet" href="/Public/Home/css/banner.css" />
+		<script src="/Public/Home/js/jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<!--网站头部开始-->
+<div class="head">
+    <a href="<?php echo U('Mobile/Index/index');?>"><img src="/Public/Mobile/img/index-01.png" alt="" /></a>
+</div>
+<!--网站导航开始-->
+<div class="nav1">
+    <ul>
+        <li><a href="/">网站首页</a></li>
+        <li><a href="<?php echo U('Mobile/About/about');?>">武校简介</a></li>
+        <li><a href="<?php echo U('Mobile/Student/student');?>">招生简章</a></li>
+        <li><a href="<?php echo U('Mobile/Charge/charge');?>">收费标准</a></li>
+        <li><a href="<?php echo U('Mobile/Course/course');?>">课程安排</a></li>
+        <li><a href="<?php echo U('Mobile/Question/question');?>">家长问答</a></li>
+        <li><a href="<?php echo U('Mobile/Graduate/graduate');?>">毕业去向</a></li>
+        <li><a href="<?php echo U('Mobile/Contact/contact');?>">联系我们</a></li>
+    </ul>
+</div>
+<!--网站banner开始-->
+<div class="banner">
+    <div class="main_visual">
+        <div class="flicking_con">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+        </div>
+        <div class="main_image">
+            <ul>
+                <?php if(is_array($banners)): foreach($banners as $key=>$vo): ?><li><span><img src="<?php echo ($vo["pic"]); ?>"/></span></li><?php endforeach; endif; ?>
+            </ul>
+            <a href="javascript:;" id="btn_prev"></a>
+            <a href="javascript:;" id="btn_next"></a>
+        </div>
+    </div>	
+</div>
+<!--banner下方的点击咨询-->
+<!--<div class="consultation">
+        <input type="text" name="" id="" value="" placeholder="学生姓名："/>
+        <input type="text" name="" id="" value="" placeholder="您的电话："/>
+        <span>立即咨询</span>
+</div>-->
+				<div class="right environment">
+					<h2 class="title1">
+						<u>校园环境</u>
+						<span>当前位置：<a href="<?php echo U('Home/Index/index');?>">网站首页</a>><a href="<?php echo U('Home/Environment/environment');?>">校园环境</a></span>
+					</h2>
+					<?php echo ($environment["dis"]); ?>
+				</div>
+			</div>
+		</div>
+		
+                <!--首页版权信息部分-->
+<div class="foot">
+    <p>
+        <?php echo ($company["banum"]); ?>
+        <br /><?php echo ($company["spnum"]); ?>
+        <br /><?php echo ($company["address"]); ?>
+        <br />联系电话：<?php echo ($company["phone"]); ?>
+        <br />手机号：<?php echo ($company["mobile"]); ?>
+        <br />
+        <img src="/Public/Mobile/img/index-17.png" alt="" />
+        <img src="/Public/Mobile/img/index-18.png" alt="" />
+        <img src="/Public/Mobile/img/index-19.png" alt="" />
+        <!--<img src="img/index-20.png" alt="" />-->
+    </p>
+</div>
+<!--网站底部固定的导航菜单-->
+<ul class="nav3">
+    <li>
+        <a href="tel://<?php echo ($company["phone"]); ?>">
+            <img src="/Public/Mobile/img/index-32.png" alt="" />
+            <h3>电话咨询</h3>
+        </a>
+    </li>
+    <li>
+        <a href="sms:<?php echo ($company["zxmobile"]); ?>">
+            <img src="/Public/Mobile/img/index-33.png" alt="" />
+            <h3>短信咨询</h3>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo ($link["online"]); ?>" target="_blank">
+            <img src="/Public/Mobile/img/index-34.png" alt="" />
+            <h3>在线咨询</h3>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo ($link["shool"]); ?>">
+            <img src="/Public/Mobile/img/index-35.png" alt="" />
+            <h3>乘坐校车</h3>
+        </a>
+    </li>
+</ul>
+<!--页面上的弹窗-->
+<div class="bg">
+    <div class="box">
+        <img class="close" src="/Public/Mobile/img/close.png"/>
+        <img class="gif" src="/Public/Mobile/img/timg.png" alt="" />
+        <h2>官方直属公办院校</h2>
+        <form action="<?php echo U('Mobile/Index/call');?>" method="post">
+            <h3>
+                <input type="text" name="phone" id="" value="" placeholder="请输入手机号码"/>
+                <button class="dial_back">免费回电</button>
+            </h3>
+        </form>
+        <p>咨询热线：<a href="tel://<?php echo ($company["phone"]); ?>"><?php echo ($company["phone"]); ?></a></p>
+        <h4>
+            <a href="tel://<?php echo ($company["phone"]); ?>">
+                <img src="/Public/Mobile/img/index-32.png" alt="" />
+                <span>电话咨询</span>
+            </a>
+            <a href="<?php echo U('Mobile/Charge/sign_up');?>">
+                <img src="/Public/Mobile/img/index-34.png" alt="" />
+                <span>在线预约</span>
+            </a>
+        </h4>
+    </div>
+</div>
+ <script type="text/javascript">
+
+        $(document).ready(function () {
+          
+
+            //点击回拨电话后的验证
+            $(".dial_back").click(function () {
+                var phone = $(this).prev().val();
+                var reg = /^1[34578]\d{9}$/;
+                if (!(reg.test(phone))) {
+                    alert("请输入正确的手机号码！");
+                    return false;
+                }
+            });
+
+        })
+    </script>
+
+		
+		<!--JavaScript部分-->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//左侧悬浮的服务窗口
+				$(window).scroll(function(){
+					var h1 = 600;
+					var h = $(window).scrollTop();
+					if(h>h1){
+						$(".box1").show();
+					}else{
+						$(".box1").hide();
+					}
+				})
+				//网站中间的弹窗
+				setTimeout(function(){$(".box2").show()},5000);
+                                
+				$(".box2 .close").click(function(){
+					$(".box2").hide();
+					showbox2();
+				})
+				function showbox2(){
+					setTimeout(function(){
+						$(".box2").show();
+					},10000)
+				}
+				//点击回拨电话后的验证
+				$(".dial_back").click(function(){
+					var phone = $(this).prev().val();
+					var reg = /^1[34578]\d{9}$/;
+					if(!(reg.test(phone))){
+						alert("请输入正确的手机号码！");
+						return false;
+					}
+				})
+				//在线报名中的提交按钮的验证
+				$(".about form button").click(function(){
+					var phone = $(this).parents("form").find("p").eq(1).find("input").val();
+					var name = $(this).parents("form").find("p").eq(0).find("input").val();
+					var reg_name = /^[ ]+$/;
+					var reg_phone = /^1[34578]\d{9}$/;
+					if(name==""||reg_name.test(name)){
+						alert("请您输入学院姓名！");
+						return false;
+					}else{
+						if(!(reg_phone.test(phone))){
+							alert("请输入正确的手机号码！");
+							return false;
+						}
+					}
+				})
+			})
+				
+		</script>
+	</body>
+</html>

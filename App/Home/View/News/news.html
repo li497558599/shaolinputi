@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+            <title>{$news1.title}</title>
+            <meta name="Keywords" content="{$news1.keywords}"/>
+            <meta name="Description" content="{$news1.dis}"/>
+            <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/main.css"/>
+            <link rel="stylesheet" href="__PUBLIC__/Home/css/banner.css" />
+            <script src="__PUBLIC__/Home/js/jquery-1.11.1.min.js"></script>
+    </head>
+    <body>
+        <include file='../Common/header'/>
+        <div class="right news">
+            <h2 class="title1">
+                <u>新闻资讯</u>
+                <span>当前位置：<a href="/">网站首页</a>><a href="news">新闻资讯</a></span>
+            </h2>
+            <ul class="list1">
+                <li <if condition="!$ac">class="active"</if>><a href="news">全部新闻</a></li>
+                <li <if condition="$ac eq '武校新闻'">class="active"</if>><a href="/news/cates=武校新闻">武校新闻</a></li>
+
+                <li <if condition="$ac eq '媒体新闻'">class="active"</if>><a href="/news/cates=媒体新闻">媒体新闻</a></li>
+
+                <li <if condition="$ac eq '少林资讯'">class="active"</if>><a href="/news/cates=少林资讯">少林资讯</a></li>
+                <li <if condition="$ac eq '学院军训'">class="active"</if>><a href="/news/cates=学院军训">学院军训</a></li>
+            </ul>
+            <ul class="list2">
+                <foreach name="cates1" item="vo">
+                    <li>
+                        <div class="pic">
+                            <img src="{$vo.pic}"/>
+                        </div>
+                        <div class="word">
+                            <h2><a href="/news_in/{$vo.id}">{$vo.title}</a><span>{$vo.ctime}</span></h2>
+                            <p>{$vo.dis}</p>
+                        </div>
+                    </li>
+                </foreach>
+            </ul>
+            <div class="page">
+                <if condition="!$ac">
+                     {$page}
+                    <else/>
+                        
+                </if>
+           
+            </div>
+        </div>
+        </div>
+        </div>
+
+        <include file='../Common/footer'/>
+
+        <!--JavaScript部分-->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //左侧悬浮的服务窗口
+                $(window).scroll(function () {
+                    var h1 = 600;
+                    var h = $(window).scrollTop();
+                    if (h > h1) {
+                        $(".box1").show();
+                    } else {
+                        $(".box1").hide();
+                    }
+                })
+                //网站中间的弹窗
+//                setTimeout(function () {
+//                    $(".box2").show()
+//                }, 5000);
+//
+//                $(".box2 .close").click(function () {
+//                    $(".box2").hide();
+//                    showbox2();
+//                })
+//                function showbox2() {
+//                    setTimeout(function () {
+//                        $(".box2").show();
+//                    }, 10000)
+//                }
+                //点击回拨电话后的验证
+                $(".dial_back").click(function () {
+                    var phone = $(this).prev().val();
+                    var reg = /^1[34578]\d{9}$/;
+                    if (!(reg.test(phone))) {
+                        alert("请输入正确的手机号码！");
+                        return false;
+                    }
+                })
+                //在线报名中的提交按钮的验证
+                $(".about form button").click(function () {
+                    var phone = $(this).parents("form").find("p").eq(1).find("input").val();
+                    var name = $(this).parents("form").find("p").eq(0).find("input").val();
+                    var reg_name = /^[ ]+$/;
+                    var reg_phone = /^1[34578]\d{9}$/;
+                    if (name == "" || reg_name.test(name)) {
+                        alert("请您输入学院姓名！");
+                        return false;
+                    } else {
+                        if (!(reg_phone.test(phone))) {
+                            alert("请输入正确的手机号码！");
+                            return false;
+                        }
+                    }
+                })
+            })
+
+        </script>
+    </body>
+</html>

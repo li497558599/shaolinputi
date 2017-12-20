@@ -1,0 +1,78 @@
+<include file="../Common/header"/>
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i>教学体系</h3>
+          	
+          	<!-- BASIC FORM ELELEMNTS -->
+          	<div class="row mt">
+          		<div class="col-lg-12">
+                  <div class="form-panel">
+                  	  <h4 class="mb"><i class="fa fa-angle-right"></i>修改信息</h4>
+                      <form class="form-horizontal style-form" method="post" action="__MODULE__/Products/upload" enctype="multipart/form-data">
+                      <input type="hidden" name="id" value="{$info.id}">
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">当前体系</label>
+                              <div class="col-sm-10">
+                                   <select style="width:50%" name="cates" id="cates" class="form-control">
+                                          <option>{$info.cates}</option>
+                                         <foreach name="cates" item="vocates">
+                                                <option>{$vocates.cates}</option>
+                                         </foreach>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">信息名称</label>
+                              <div class="col-sm-10">
+                                  <input type="text" name="name" value="{$info.name}" style="width:50%" class="form-control">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">信息介绍</label>
+                              <div class="col-sm-10">
+                                  <script type="text/javascript" charset="utf-8" src="/Public/Admin/ue/ueditor.config.js"></script>
+                                  <script type="text/javascript" charset="utf-8" src="/Public/Admin/ue/ueditor.all.min.js"></script>
+                                  <script type="text/javascript" charset="utf-8" src="/Public/Admin/ue/lang/zh-cn/zh-cn.js"></script>
+                                  <script id="editor" type="text/plain"name="content" value="" style="width:1024px;">{$info.content}</script>
+                              </div>
+                          </div>
+                              <a style="width:30%;margin-left:17%;" class="btn btn-theme03" onclick="send()">确认修改</a>
+                      </form>
+                  </div>
+          		</div><!-- col-lg-12-->      	
+          	</div><!-- /row -->
+          	
+		</section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+      <!--main content end-->
+      <script type="text/javascript">
+
+            //实例化编辑器
+            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+            var ue = UE.getEditor('editor');
+        </script>
+      <script type="text/javascript">
+        function send()
+        {
+          var url = "__MODULE__/Products/update_pro";
+          var data = {};
+          data.name = $("input[name='name']").val();
+          data.cates = $("#cates").val();
+          data.content = $("textarea[name='content']").val();
+          data.id = $("input[name='id']").val();
+          $.post(url,data,function(res){
+                  res = JSON.parse(res);
+                  if(res.status == 1){
+                             layer.alert(res.msg,{icon:6,btn1:function(){window.location.href=res.url;}});
+                  }else{
+                             layer.alert(res.msg,{icon:5});
+                  } 
+          })
+        }
+      </script>
+<include file="../Common/footer"/>

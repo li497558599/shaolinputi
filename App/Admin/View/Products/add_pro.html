@@ -1,0 +1,63 @@
+<include file="../Common/header"/>
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i>教学体系</h3>
+          	
+          	<!-- BASIC FORM ELELEMNTS -->
+          	<div class="row mt">
+          		<div class="col-lg-12">
+                  <div class="form-panel">
+                  	  <h4 class="mb"><i class="fa fa-angle-right"></i>添加信息</h4>
+                      <form class="form-horizontal style-form" method="post" action="__MODULE__/Products/insert_pro" enctype="multipart/form-data" onsubmit="return check()">
+                      <input type="hidden" name="c_id" value="{$id}">
+                          
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">信息名称</label>
+                              <div class="col-sm-10">
+                                  <input type="text" name="name" value="" style="width:50%" class="form-control">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">信息介绍</label>
+                              <div class="col-sm-10">
+                                  <script type="text/javascript" charset="utf-8" src="/Public/Admin/ue/ueditor.config.js"></script>
+                                  <script type="text/javascript" charset="utf-8" src="/Public/Admin/ue/ueditor.all.min.js"></script>
+                                  <script type="text/javascript" charset="utf-8" src="/Public/Admin/ue/lang/zh-cn/zh-cn.js"></script>
+                                  <script id="editor" type="text/plain"name="content" value="" style="width:1024px;height:500px;"></script>
+                              </div>
+                          </div>
+                      
+                              <button type="submit" style="width:30%;margin-left:17%;" class="btn btn-theme03">确认添加</button>
+                      </form>
+                  </div>
+          		</div><!-- col-lg-12-->      	
+          	</div><!-- /row -->
+          	
+		</section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+      <!--main content end-->
+      <script type="text/javascript">
+
+            //实例化编辑器
+            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+            var ue = UE.getEditor('editor');
+        </script>
+        <script type="text/javascript">
+          function check()
+          {
+                if(document.getElementsByName("name")[0].value=="")
+                {
+                  layer.alert("请填写信息名称！",{icon:6});return false;
+                }
+                 if(document.getElementsByName("content")[0].value=="")
+                {
+                  layer.alert("请填写信息介绍！",{icon:6});return false;
+                }
+          }
+        </script>
+<include file="../Common/footer"/>

@@ -1,0 +1,59 @@
+<include file="../Common/header"/>
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+            <h3><i class="fa fa-angle-right"></i>轮播图管理</h3>
+            
+            <!-- BASIC FORM ELELEMNTS -->
+            <div class="row mt">
+              <div class="col-lg-12">
+                  <div class="form-panel">
+                      <h4 class="mb"><i class="fa fa-angle-right"></i>添加轮播图</h4>
+                      <form class="form-horizontal style-form" method="post" action="__MODULE__/Lbpics/sy_insert" enctype="multipart/form-data">
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">上传图片</label>
+                              <div class="col-sm-10">
+                                  <input type="file" name="pic">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">描述</label>
+                              <div class="col-sm-10">
+                                  <input type="text" name="dis" style="width:50%" class="form-control">
+                              </div>
+                          </div>
+                              <button type="submit" style="width:30%;margin-left:17%;" class="btn btn-primary btn-lg btn-block">确认添加</button>
+                      </form>
+                  </div>
+              </div><!-- col-lg-12-->       
+            </div><!-- /row -->
+            
+    </section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+      <!--main content end-->
+<!--footer start-->
+      <footer class="site-footer">
+          <div style="cursor: pointer;" class="text-center" onclick="hid()">
+               温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！
+          </div>
+      </footer>
+      <script>
+        function hid()
+        {
+            $(".site-footer").hide();
+        }
+        var words = ['温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！','温馨提示：删除数据时，一定要谨慎操作！内存有现，数据无价！','温馨提示：登录密码要牢记！忘记请联系我们！','温馨提示：要是您对网站有什么问题，请致电我们公司，我们会详细为您解答！'];
+        
+        $(".text-center").html(words[Math.round(Math.random()*3+1)]);
+
+
+
+      </script>
+      <!--footer end-->
+  </section>
+  </body>
+</html>

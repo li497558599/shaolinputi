@@ -1,0 +1,115 @@
+<include file="../Common/header"/>
+<style>
+  .page .current{color:#fff;background:#a94442;}
+  .page{text-align: center;margin:20px 0 !important;}
+  .page p{display: inline-block;float: none !important;position: relative;top: -8px;}  
+  .page a{display: inline-block;}  
+  .page div{display: inline-block;}  
+</style>
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i>新闻资讯</h3>
+				<div class="row">
+	                  <div class="col-md-12 mt">
+	                  	<div class="content-panel">
+                              <h4><i class="fa fa-angle-right"></i>资讯列表</h4>
+                                <form class="form-inline" role="form" method="get" action="__MODULE__/News/news/{$keywords}">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">输入新闻资讯标题搜索</label>
+                                        <input style="width:500px;" type="text" name="keywords" value="{$Think.get.keywords}" class="form-control" id="exampleInputPassword2" placeholder="输入问题标题搜索">
+                                    </div>
+                                    <button type="submit" class="btn btn-theme02">搜 索</button>
+                                    <a style="margin-left:10%;" href="__MODULE__/News/add_news" class="btn btn-danger">添加新闻资讯</a>
+                                </form>
+                              
+                              
+                                <hr>
+                                <if condition="empty($data)">
+                                              <table class="table table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th style="text-align: center;font-size: 28px;">没有任何结果！</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                <else/>
+                                              <table class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>编号</th>
+                                                        <th>标题</th>
+                                                        <th>图片</th>
+                                                        <th>作者</th>
+                                                        <th>添加时间</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                              <foreach name="data" item="vo">
+                                                                  <tr>
+                                                                      <td style="font-size:18px;">{$vo.id}</td>
+                                                                      <td style="font-size:18px;">{$vo.title}</td>
+                                                                     <td><img width="100" height="70" src="{$vo.pic}" alt="图片"></td>
+                                                                     <td style="font-size:18px;">{$vo.author}</td>
+                                                                      <td style="font-size:18px;">{$vo.ctime}</td>
+                                                                      <td>
+                                                                              <a href="__MODULE__/News/news_info/id/{$vo.id}" class="btn btn-info">查看</a>
+                                                                              <a href="__MODULE__/News/change_news/id/{$vo.id}" class="btn btn-success">修改</a>
+                                                                              <a href="__MODULE__/News/delete_news/id/{$vo.id}" class="btn btn-danger" onclick="return firm(this);">删除</a>
+                                                                      </td>
+                                                                  </tr>
+                                                              </foreach>
+                                                    </tbody>
+                                                </table>
+	                  	  </div><! --/content-panel -->
+                                   <div class="page">
+                                                     {$page}
+                                                <p class='num'>共 {$num} 条</p>
+                                                </div> 
+                        </if>
+	                  </div><!-- /col-md-12 -->
+				</div><!-- row -->
+
+		</section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+   <script>
+            function firm(obj)
+            {
+                  layer.confirm('你确定要删除吗？', {
+                    btn: ['确定','取消'] //按钮
+                  }, function(){
+                       window.location.href=$(obj).attr("href");
+                  }, function(){
+                    
+                  });
+                  return false;
+            }
+   </script>
+      <!--main content end-->
+<!--footer start-->
+      <footer class="site-footer">
+          <div style="cursor: pointer;" class="text-center" onclick="hid()">
+               温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！
+          </div>
+      </footer>
+      <script>
+        function hid()
+        {
+            $(".site-footer").hide();
+        }
+        var words = ['温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！','温馨提示：删除数据时，一定要谨慎操作！内存有现，数据无价！','温馨提示：登录密码要牢记！忘记请联系我们！','温馨提示：要是您对网站有什么问题，请致电我们公司，我们会详细为您解答！'];
+        
+        $(".text-center").html(words[Math.round(Math.random()*3+1)]);
+
+
+
+      </script>
+      <!--footer end-->
+  </section>
+  </body>
+</html>

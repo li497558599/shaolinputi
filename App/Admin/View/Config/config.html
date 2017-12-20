@@ -1,0 +1,68 @@
+<include file="../Common/header"/>
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i>网站管理</h3>
+				<div class="row">
+            	                  <div class="col-md-12">
+            	                  	  <div class="content-panel">
+            	                  	  	  <h4><i class="fa fa-angle-right">网站配置</i></h4>
+            	                  	  	  <hr>
+            		                      <table class="table">
+            		                          <thead>
+                                                    <tr>
+                                                        <th>logo</th><th><img width="500" height="150" src="{$info.pic}" alt="图片"></th>
+                                                    </tr>
+                		                          <tr>
+                		                              <th>网站状态</th><if condition="$info.turn eq 1"><th style="font-size:28px;">开启中</th><else/><th style="font-size:28px;">关闭中</th></if>
+                		                          </tr>
+                                                    <tr>
+                                                        <th>网站名称</th><th style="font-size:28px;">{$info.name}</th>
+                                                    </tr>
+                                                     <tr>
+                                                        <th>网站地址</th><th style="font-size:28px;">{$info.webAdre}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>网站标题</th><th style="font-size:28px;">{$info.title}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>网站关键字</th><th style="font-size:28px;">{$info.keywords}</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>网站描述</th><th style="font-size:28px;">{$info.discription}</th>
+                                                    </tr>
+            		                          </thead>
+            		                      </table>
+            	                  	  </div>
+            	                  </div><!-- /col-md-12 -->
+				</div><!-- row -->
+		</section>
+      </section><!-- /MAIN CONTENT -->
+
+      <!--main content end-->
+<!--footer start-->
+      <footer class="site-footer">
+          <div style="cursor: pointer;" class="text-center" onclick="hid()">
+               温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！
+          </div>
+      </footer>
+      <script>
+        function hid()
+        {
+            $(".site-footer").hide();
+        }
+        var words = ['温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！','温馨提示：删除数据时，一定要谨慎操作！内存有现，数据无价！','温馨提示：登录密码要牢记！忘记请联系我们！','温馨提示：要是您对网站有什么问题，请致电我们公司，我们会详细为您解答！'];
+        
+        $(".text-center").html(words[Math.round(Math.random()*3+1)]);
+
+
+
+      </script>
+      <!--footer end-->
+  </section>
+  </body>
+</html>

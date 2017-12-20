@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="Keywords" content="{$config.keywords}"/>
+        <meta name="Description" content="{$config.discription}"/>
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>{$config.title}</title>
+        <link rel="stylesheet" href="__PUBLIC__/Mobile/css/main.css" />
+        <script src="__PUBLIC__/Mobile/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/Mobile/js/jquery.touchSlider.js"></script>
+        <script src="__PUBLIC__/Mobile/js/jquery.event.drag-1.5.min.js"></script>
+    </head>
+    <body>
+    <include file="../Common/header"/>
+
+    <!--首页内容开始-->
+    <div class="content">
+        <div class="cont cont1">
+            <h2><u><img src="__PUBLIC__/Mobile/img/index-03.png"/>武校简介</u><a href="{:U('Mobile/About/about')}">更多<img src="__PUBLIC__/Mobile/img/index-04.png"/></a></h2>
+            <p>{$company.description|mb_substr=0,500,utf8}</p>
+            <p><img src="{$company.pic}" alt="" /></p>
+            <ul class="list1">
+                <ul>
+                    <h3>教学体系</h3>
+                    <foreach name='cates1' item='vo'>
+                        <li><a href="__MODULE__/Index/info/id/{$vo.id}">{$vo.cates}</a></li>
+
+                    </foreach>
+                </ul>
+                <ul>
+                    <h3>机构管理</h3>
+                    <foreach name='cates2' item='vo'>
+                        <li><a href="__MODULE__/Index/info/id/{$vo.id}">{$vo.cates}</a></li>
+                    </foreach>
+                </ul>
+                <ul>
+                    <h3>在校生活</h3>
+                    <foreach name='cates3' item='vo'>
+                        <li><a href="__MODULE__/Index/info/id/{$vo.id}">{$vo.cates}</a></li>
+                    </foreach>
+                </ul>
+                <ul>
+                    <h3>来校须知</h3>
+                    <foreach name='cates4' item='vo'>
+                        <li><a href="__MODULE__/Index/info/id/{$vo.id}">{$vo.cates}</a></li>
+                    </foreach>
+                </ul>
+            </ul>
+        </div>
+        <div class="cont cont2">
+            <h2><u><img src="__PUBLIC__/Mobile/img/index-03.png"/>校园风采</u><!--<a href="">更多<img src="img/index-04.png"/></a>--></h2>
+            <ul class="list2">
+                <li class="active">
+                    <img src="__PUBLIC__/Mobile/img/index-10-2.png" alt="" />
+                    <img src="__PUBLIC__/Mobile/img/index-10.png" alt="" />
+                    <span>女生练功图片</span>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/Mobile/img/index-11.png" alt="" />
+                    <img src="__PUBLIC__/Mobile/img/index-11-02.png" alt="" />
+                    <span>校园设施</span>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/Mobile/img/index-12.png" alt="" />
+                    <img src="__PUBLIC__/Mobile/img/index-12-02.png" alt="" />
+                    <span>宿舍环境</span>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/Mobile/img/index-13.png" alt="" />
+                    <img src="__PUBLIC__/Mobile/img/index-13-02.png" alt="" />
+                    <span>校园餐厅</span>
+                </li>
+                <li>
+                    <img src="__PUBLIC__/Mobile/img/index-15.png" alt="" />
+                    <img src="__PUBLIC__/Mobile/img/index-15-02.png" alt="" />
+                    <span>新生入伍</span>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="__PUBLIC__/Mobile/img/index-14.png" alt="" />
+                        <span>点击咨询</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="pic">
+                <img class="img1" src="{$environinfo5.pic}"/>
+                <img class="img1" src="{$environinfo1.pic}"/>
+                <img class="img1" src="{$environinfo2.pic}"/>
+                <img class="img1" src="{$environinfo3.pic}"/>
+                <img class="img1" src="{$environinfo4.pic}"/>
+            </div>
+        </div>
+
+
+        <div class="cont cont3">
+            <h2><u><img src="__PUBLIC__/Mobile/img/index-03.png"/>课程安排</u><a href="{:U('Mobile/Course/course')}">更多<img src="__PUBLIC__/Mobile/img/index-04.png"/></a></h2>
+            <ul class="list3">
+                <p class="title">{$clas.dis}</p>
+                <li>
+
+                    <div class="">
+                        <a href="{:U('Mobile/Course/course')}"><img src="{$kcpics1.pic}"/></a>
+                    </div>
+                    <a href="{:U('Mobile/Course/course')}"> <h3>{$kcpics1.name}</h3></a>
+
+                </li>
+                <li>
+                    <div class="">
+                        <a href="{:U('Mobile/Course/course')}"><img src="{$kcpics2.pic}"/></a>
+                    </div>
+                    <a href="{:U('Mobile/Course/course')}"><h3>{$kcpics2.name}</h3></a>
+                </li>
+                <li>
+                    <div class="">
+                        <a href="{:U('Mobile/Course/course')}"><img src="{$kcpics3.pic}"/></a>
+                    </div>
+                     <a href="{:U('Mobile/Course/course')}"><h3>{$kcpics3.name}</h3></a>
+                </li>
+                <li>
+                    <div class="">
+                         <a href="{:U('Mobile/Course/course')}"><img src="{$kcpics4.pic}"/>></a>
+                    </div>
+                    <a href="{:U('Mobile/Course/course')}"><h3>{$kcpics4.name}</h3></a>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+        <ul class="nav2">
+            <li>
+                <a href="tel://{$company.phone}">
+                    <img src="__PUBLIC__/Mobile/img/index-32.png"/>
+                    <h3>电话咨询</h3>
+                </a>
+            </li>
+            <li>
+                <a href="sms:{$company.zxmobile}">
+                    <img src="__PUBLIC__/Mobile/img/index-33.png"/>
+                    <h3>短信咨询</h3>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="__PUBLIC__/Mobile/img/index-34.png"/>
+                    <h3>在线咨询</h3>
+                </a>
+            </li>
+            <li>
+                <a href="#zxbm" >
+                    <img src="__PUBLIC__/Mobile/img/index-35.png"/>
+                    <h3>在线报名</h3>
+                </a>
+            </li>
+        </ul>
+        <div class="cont cont4">
+            <h2><u><img src="__PUBLIC__/Mobile/img/index-03.png"/>毕业去向</u><a href="{:U('Mobile/Graduate/graduate')}">更多<img src="__PUBLIC__/Mobile/img/index-04.png"/></a></h2>
+            <p>{$goes.dis}</p>	
+            <ul class="list4">
+                <foreach name='pics' item='vo'>
+                    <li>
+                        <img src="{$vo.pic}"/>
+                        <h3>{$vo.name}</h3>
+                    </li>
+                </foreach>
+
+            </ul>
+        </div>
+        <div class="cont cont5">
+            <h2><u><img src="__PUBLIC__/Mobile/img/index-03.png"/>新闻资讯</u><a href="{:U('Mobile/News/news')}">更多<img src="__PUBLIC__/Mobile/img/index-04.png"/></a></h2>
+            <ul class="list5">
+                <foreach name='news1' item='vo'>
+                    <li>
+                        <a href="__MODULE__/News/news_in/id/{$vo.id}">
+                            <div class="li_l">
+                                <img src="{$vo.pic}"/>
+                            </div>
+                            <div class="li_r">
+                                <h3>{$vo.title}</h3>
+                                <p>{$vo.dis|mb_substr=0,40,utf8}</p>
+                            </div>
+                        </a>
+                    </li>
+                </foreach>
+
+            </ul>
+        </div>
+        <div class="cont cont6" id="#sign_up"><a name="zxbm"></a>
+            <h2><u><img src="__PUBLIC__/Mobile/img/index-03.png"/>在线报名</u><a href="{:U('Mobile/Charge/sign_up')}">更多<img src="__PUBLIC__/Mobile/img/index-04.png"/></a></h2>
+            <form action="{:U('Mobile/Index/online')}"  method="post">
+                <p><u>学生姓名：</u><input type="text" name="name" id="" value="" placeholder="必填"/></p>
+                <p><u>联系电话：</u><input type="text" name="years" id="" value="" placeholder="必填"/></p>
+                <p><u>微信/qq号：</u><input type="text" name="phone" id="" value="" placeholder="必填"/></p>
+                <p><u>留言内容：</u><input type="text" name="content" id="" value="" placeholder="可不填"/></p>
+                <p><button type="submit">提交信息</button></p>
+            </form>
+        </div>
+    </div>
+    <include file='../Common/footer'/>
+    <!--javascript部分-->
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //banner切换效果
+            $(function () {
+                $(".main_image").touchSlider({
+                    flexible: true,
+                    speed: 200,
+                    btn_prev: $("#btn_prev"),
+                    btn_next: $("#btn_next"),
+                    paging: $(".flicking_con a"),
+                    counter: function (e) {
+                        $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+                    }
+                });
+
+                $(".main_image").bind("mousedown", function () {
+                    $dragBln = false;
+                });
+
+                $(".main_image").bind("dragstart", function () {
+                    $dragBln = true;
+                });
+
+                timer = setInterval(function () {
+                    $("#btn_next").click();
+                }, 3000);
+
+                $(".main_visual").hover(function () {
+                    clearInterval(timer);
+                }, function () {
+                    timer = setInterval(function () {
+                        $("#btn_next").click();
+                    }, 3000);
+                });
+
+                $(".main_image").bind("touchstart", function () {
+                    clearInterval(timer);
+                }).bind("touchend", function () {
+                    timer = setInterval(function () {
+                        $("#btn_next").click();
+                    }, 3000);
+                });
+                $(window).on("load resize", function () {
+                    var w = $(".banner").width();
+                    var h = w * 0.506;
+                    var top = h - 30;
+                    $(".banner").height(h);
+                    $(".banner div.flicking_con").css("top", top)
+                })
+            })
+            //网站foot的paading-bottom的值
+            $(window).on("load resize", function () {
+                var h = $(".nav3").css("height");
+                $(".foot").css("margin-bottom", h);
+            })
+            //学校风采板块 点击切换图片效果
+            $(function () {
+                var w = $(".pic").width();
+                $(".pic").height(w * 0.57);
+                $(".list2 li").click(function () {
+                    var num = $(this).index();
+                    $(this).addClass("active");
+                    $(this).siblings().removeClass("active");
+                    $(".pic img").fadeOut();
+                    $(".pic img").eq(num).fadeIn();
+                    var h2 = $(".pic img").eq(num).height();
+                    $(".pic").height(h2);
+                });
+                $(".list2 li").eq(5).unbind("click");
+            })
+            //学院招生板块
+            $(function () {
+                setTimeout(list3pic, 2000);
+                function list3pic() {
+                    var h0 = $(".list3 li").eq(0).height();
+                    var h1 = $(".list3 li").eq(1).height();
+                    var h2 = $(".list3 li").eq(2).height();
+                    var h3 = $(".list3 li").eq(3).height();
+                    var h = Math.min(h0, h1, h2, h3);
+                    $(".list3 li").height(h + 30);
+                }
+            });
+//            //弹窗样式以及效果
+//            setTimeout(function () {
+//                $(".bg").show();
+//            }, 5000);
+//            $(".bg .close").click(function () {
+//                $(".bg").hide();
+//                showbox();
+//            });
+//            function showbox() {
+//                setTimeout(function () {
+//                    $(".bg").show();
+//                }, 10000);
+//            }
+            //教学体系各个板块的高度计算
+            $(function () {
+                var list1_w = $(".list1 ul").width();
+                var list1_h = list1_w * 0.625;
+                $(".list1 ul").height(list1_h);
+            })
+            $(window).resize(function () {
+                var list1_w = $(".list1 ul").width();
+                var list1_h = list1_w * 0.625;
+                $(".list1 ul").height(list1_h);
+            })
+            //在线报名中的提交按钮的验证
+            $(".cont6 form button").click(function () {
+                var phone = $(this).parents("form").find("p").eq(1).find("input").val();
+                var name = $(this).parents("form").find("p").eq(0).find("input").val();
+                var reg_name = /^[ ]+$/;
+                var reg_phone = /^1[34578]\d{9}$/;
+                if (name == "" || reg_name.test(name)) {
+                    alert("请您输入学员姓名！");
+                    return false;
+                } else {
+                    if (!(reg_phone.test(phone))) {
+                        alert("请输入正确的手机号码！");
+                        return false;
+                    }
+                }
+            })
+
+            //点击回拨电话后的验证
+            $(".dial_back").click(function () {
+                var phone = $(this).prev().val();
+                var reg = /^1[34578]\d{9}$/;
+                if (!(reg.test(phone))) {
+                    alert("请输入正确的手机号码！");
+                    return false;
+                }
+            });
+            $(function () {
+                setTimeout(picheight, 2000);
+                function picheight() {
+                    var h0 = $(".cont4 .list4 li").eq(0).outerHeight();
+                    var h1 = $(".cont4 .list4 li").eq(1).outerHeight();
+                    var h2 = $(".cont4 .list4 li").eq(2).outerHeight();
+                    var h3 = $(".cont4 .list4 li").eq(3).outerHeight();
+                    var h = Math.max(h0, h1, h2, h3);
+                    $(".cont4 .list4 li").height(h);
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>

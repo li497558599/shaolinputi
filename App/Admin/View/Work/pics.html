@@ -1,0 +1,94 @@
+<include file="../Common/header"/>
+
+<!-- **********************************************************************************************************************************************************
+MAIN CONTENT
+*********************************************************************************************************************************************************** -->
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <h3><i class="fa fa-angle-right"></i>毕业去向</h3>
+        <div class="row">
+            <div class="col-md-12 mt">
+                <div class="content-panel">
+                    <h4><i class="fa fa-angle-right"></i>毕业图集</h4>
+                    <a style="margin-left:10%;" href="__MODULE__/Work/addEditPics" class="btn btn-danger">添加详情</a>
+                    <hr>
+                    <if condition="empty($data)">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;font-size: 28px;">没有任何结果！</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <else/>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>图片</th>
+                                    <th>名称</th>
+                                    <th>最近修改时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <foreach name="data" item="vo">
+                                <tr>
+                                    <td style="font-size:18px;">{$vo.id}</td>
+                                    <td style="font-size:18px;"><img src="{$vo.pic}" width="150px" height="100px"/></td>
+                                    <td style="font-size:18px;">{$vo.name}</td>
+                                    <td style="font-size:18px;">{$vo.ctime}</td>
+                                    <td>
+                                        <a href="__MODULE__/Work/pics_info/id/{$vo.id}" class="btn btn-success">查看</a>
+
+                                        <a href="__MODULE__/Work/addEditPics/id/{$vo.id}" class="btn btn-success">修改</a>
+                                        <a href="__MODULE__/Work/delPics/id/{$vo.id}" class="btn btn-danger" onclick="return firm(this);">删除</a>
+                                    </td>
+                                </tr>
+                            </foreach>
+                            </tbody>
+                        </table>
+                </div><! --/content-panel -->
+                </if>
+            </div><!-- /col-md-12 -->
+        </div><!-- row -->
+
+    </section><! --/wrapper -->
+</section><!-- /MAIN CONTENT -->
+<script>
+    function firm(obj)
+    {
+        layer.confirm('你确定要删除吗？', {
+            btn: ['确定', '取消'] //按钮
+        }, function () {
+            window.location.href = $(obj).attr("href");
+        }, function () {
+
+        });
+        return false;
+    }
+</script>
+<!--main content end-->
+<!--footer start-->
+<footer class="site-footer">
+    <div style="cursor: pointer;" class="text-center" onclick="hid()">
+        温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！
+    </div>
+</footer>
+<script>
+    function hid()
+    {
+        $(".site-footer").hide();
+    }
+    var words = ['温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！', '温馨提示：删除数据时，一定要谨慎操作！内存有现，数据无价！', '温馨提示：登录密码要牢记！忘记请联系我们！', '温馨提示：要是您对网站有什么问题，请致电我们公司，我们会详细为您解答！'];
+
+    $(".text-center").html(words[Math.round(Math.random() * 3 + 1)]);
+
+
+
+</script>
+<!--footer end-->
+</section>
+</body>
+</html>

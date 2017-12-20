@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="Keywords" content="{$zhaosheng.keywords}"/>
+        <meta name="Description" content="{$zhaosheng.description1}"/>
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>{$zhaosheng.title}</title>
+        <link rel="stylesheet" href="__PUBLIC__/Mobile/css/main.css" />
+        <script src="__PUBLIC__/Mobile/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/Mobile/js/jquery.touchSlider.js"></script>
+        <script src="__PUBLIC__/Mobile/js/jquery.event.drag-1.5.min.js"></script>
+    </head>
+    <body>
+    <include file='../Common/header'/>
+    <!--子页面内容开始-->
+    <div class="con student">
+        <h2><u><img src="__PUBLIC__/Mobile/img/index-03.png"/>招生简章</u><span>位置：首页>招生简章</span></h2>
+        <p>
+            {$zhaosheng.profile}
+        </p>
+  
+    </div>
+    <include file='../Common/footer'/>
+    <!--javascript部分-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //banner切换效果
+            $(function () {
+                $(".main_image").touchSlider({
+                    flexible: true,
+                    speed: 200,
+                    btn_prev: $("#btn_prev"),
+                    btn_next: $("#btn_next"),
+                    paging: $(".flicking_con a"),
+                    counter: function (e) {
+                        $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+                    }
+                });
+
+                $(".main_image").bind("mousedown", function () {
+                    $dragBln = false;
+                });
+
+                $(".main_image").bind("dragstart", function () {
+                    $dragBln = true;
+                });
+
+                timer = setInterval(function () {
+                    $("#btn_next").click();
+                }, 3000);
+
+                $(".main_visual").hover(function () {
+                    clearInterval(timer);
+                }, function () {
+                    timer = setInterval(function () {
+                        $("#btn_next").click();
+                    }, 3000);
+                });
+
+                $(".main_image").bind("touchstart", function () {
+                    clearInterval(timer);
+                }).bind("touchend", function () {
+                    timer = setInterval(function () {
+                        $("#btn_next").click();
+                    }, 3000);
+                });
+                $(window).on("load resize", function () {
+                    var w = $(".banner").width();
+                    var h = w * 0.506;
+                    var top = h - 30;
+                    $(".banner").height(h);
+                    $(".banner div.flicking_con").css("top", top)
+                })
+            })
+            //网站foot的paading-bottom的值
+            $(window).on("load resize", function () {
+                var h = $(".nav3").css("height");
+                $(".foot").css("margin-bottom", h);
+            })
+
+            //弹窗样式以及效果
+            //setTimeout(function(){$(".bg").show();},5000);
+            $(".bg .close").click(function () {
+                $(".bg").hide();
+                showbox();
+            })
+            function showbox() {
+                setTimeout(function () {
+                    $(".bg").show();
+                }, 10000)
+            }
+        })
+    </script>
+</body>
+</html>

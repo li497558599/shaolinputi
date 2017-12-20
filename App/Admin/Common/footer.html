@@ -1,0 +1,22 @@
+<!--footer start-->
+      <footer class="site-footer">
+          <div style="cursor: pointer;" class="text-center" onclick="hid()">
+               温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！
+          </div>
+      </footer>
+      <script>
+        function hid()
+        {
+            $(".site-footer").hide();
+        }
+        var words = ['温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！','温馨提示：首页还未开发完整！但不影响您的正常使用！','温馨提示：请您添加商品，以便让支付宝通过审核！请尽快申请支付宝商户账号！','温馨提示：为了我们能够顺利开发，请您尽快申请微信公众账号，并开通微信支付和微信商户！','温馨提示：要是您对网站有什么问题，请致电我们公司，我们会详细为您解答！','温馨提示：网站还未正式开发完成！这是暂时版本，等待您提供支付宝和微信我们再继续开发！目前不影响使用！'];
+        
+        $(".text-center").html(words[Math.round(Math.random()*3+1)]);
+
+
+
+      </script>
+      <!--footer end-->
+  </section>
+  </body>
+</html>

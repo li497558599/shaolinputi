@@ -1,0 +1,54 @@
+<include file="../Common/header"/>
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i>招生简章</h3>
+				<div class="row">
+            	                  <div class="col-md-12">
+            	                  	  <div class="content-panel">
+            	                  	  	  <h4><i class="fa fa-angle-right"></i>招生简章</h4>
+            	                  	  	  <hr>
+            		                      <table class="table">
+            		                          <thead>
+                                                    <tr>
+                                                        <th></th><th><a href="__MODULE__/Zhaosheng/change_dis" class="btn btn-theme03">修改简章</a></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th></th><th><h1>{$info.profile}</h1></th>
+                                                    </tr>
+                              
+            		                          </thead>
+            		                      </table>
+            	                  	  </div>
+            	                  </div><!-- /col-md-12 -->
+				</div><!-- row -->
+		</section>
+      </section><!-- /MAIN CONTENT -->
+
+      <!--main content end-->
+<!--footer start-->
+      <footer class="site-footer">
+          <div style="cursor: pointer;" class="text-center" onclick="hid()">
+               温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！
+          </div>
+      </footer>
+      <script>
+        function hid()
+        {
+            $(".site-footer").hide();
+        }
+        var words = ['温馨提示：为了保证您的数据安全！请您离开时，一定要记得退出后台！','温馨提示：删除数据时，一定要谨慎操作！内存有现，数据无价！','温馨提示：登录密码要牢记！忘记请联系我们！','温馨提示：要是您对网站有什么问题，请致电我们公司，我们会详细为您解答！'];
+        
+        $(".text-center").html(words[Math.round(Math.random()*3+1)]);
+
+
+
+      </script>
+      <!--footer end-->
+  </section>
+  </body>
+</html>

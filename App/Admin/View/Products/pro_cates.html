@@ -1,0 +1,83 @@
+<include file="../Common/header"/>
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><i class="fa fa-angle-right"></i>教学体系</h3>
+				<div class="row">
+	                  <div class="col-md-12 mt">
+	                  	<div class="content-panel">
+                              <h4><i class="fa fa-angle-right"></i>体系列表</h4>
+                                <form class="form-inline" role="form" method="get" action="__MODULE__/Products/pro_cates/{$keywords}">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">输入体系名称搜索</label>
+                                        <input style="width:500px;" type="text" name="keywords" value="{$Think.get.keywords}" class="form-control" id="exampleInputPassword2" placeholder="输入体系名称搜索">
+                                    </div>
+                                    <button type="submit" class="btn btn-theme02">搜 索</button>
+                                </form>
+                                <hr>
+                                <if condition="empty($data)">
+                                              <table class="table table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th style="text-align: center;font-size: 28px;">没有任何结果！</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
+                                <else/>
+                                              <table class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>编号</th>
+                                                        <th>名称</th>
+                                                        <th>所属分类</th>
+                                                        <th>添加时间</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                              <foreach name="data" item="vo">
+                                                                  <tr>
+                                                                      <td style="font-size:18px;">{$vo.id}</td>
+                                                                      <td style="font-size:18px;">{$vo.cates}</td>
+                                                                      <td style="font-size:18px;">{$vo.dis}</td>
+                                                                      <td style="font-size:18px;">{$vo.ctime}</td>
+                                                                      <td>
+                                                                              <a href="__MODULE__/Products/pro_list/id/{$vo.id}" class="btn btn-info">查看</a>
+                                                                              <a href="__MODULE__/Products/add_pro/id/{$vo.id}" class="btn btn-theme02">添加信息</a>
+                                                                              <a href="__MODULE__/Products/change_cates/id/{$vo.id}" class="btn btn-success">修改</a>
+                                                                              <a href="__MODULE__/Products/delete_cates/id/{$vo.id}" class="btn btn-danger" onclick="return firm(this);">删除</a>
+                                                                      </td>
+                                                                  </tr>
+                                                              </foreach>
+                                                    </tbody>
+                                                </table>
+	                  	  </div><! --/content-panel -->
+                                   <div class="page">
+                                                     {$page}
+                                                <p class='num'>共 {$num} 条</p>
+                                                </div> 
+                        </if>
+	                  </div><!-- /col-md-12 -->
+				</div><!-- row -->
+
+		</section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+   <script>
+            function firm(obj)
+            {
+                  layer.confirm('你确定要删除吗？', {
+                    btn: ['确定','取消'] //按钮
+                  }, function(){
+                       window.location.href=$(obj).attr("href");
+                  }, function(){
+                    
+                  });
+                  return false;
+            }
+   </script>
+      <!--main content end-->
+<include file="../Common/footer"/>
